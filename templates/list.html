@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Records</h3>
+
+<form method="get">
+    Type: <input name="type">
+    Category: <input name="category">
+    Start: <input type="date" name="start">
+    End: <input type="date" name="end">
+    <button type="submit">Filter</button>
+</form>
+
+<table border="1">
+<tr>
+<th>Amount</th><th>Type</th><th>Category</th><th>Date</th><th>Actions</th>
+</tr>
+{% for r in records %}
+<tr>
+<td>{{ r.amount }}</td>
+<td>{{ r.type }}</td>
+<td>{{ r.category }}</td>
+<td>{{ r.date }}</td>
+<td>
+<a href="/update/{{ r.id }}/">Edit</a>
+{% comment %} <a href="/delete/{{ r.id }}/">Delete</a> {% endcomment %}
+</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Dashboard</h3>
+<p>Total Income: {{ income }}</p>
+<p>Total Expense: {{ expense }}</p>
+<p>Balance: {{ balance }}</p>
+
+<h4>Recent Activity</h4>
+<ul>
+{% for r in recent %}
+<li>{{ r.type }} - {{ r.amount }} - {{ r.category }}</li>
+{% endfor %}
+</ul>
+{% endblock %}
